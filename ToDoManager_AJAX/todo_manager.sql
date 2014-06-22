@@ -1,0 +1,13 @@
+CREATE TABLE category(
+	categoryID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	categoryName VARCHAR(80) UNIQUE NOT NULL
+);
+
+CREATE TABLE todo(
+	todoID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	todoName VARCHAR(80) NOT NULL,
+	todoContent VARCHAR(80),
+	todoDate DATE,
+	categoryID INT,
+	CONSTRAINT categoryID_fk FOREIGN KEY(categoryID) REFERENCES category(categoryID)
+);
